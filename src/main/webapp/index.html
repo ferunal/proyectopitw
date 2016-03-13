@@ -3,8 +3,22 @@
     <head>
         <title>Start Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript">
+            function mostrarChec(){
+                var chk = document.getElementById('chk');
+                if(chk.checked===true){
+                alert('Es cierto');
+            }else{
+                alert('Es falso');
+                
+            }
+            }
+            
+        </script>
     </head>
     <body>
         <h1>Hello World!</h1>
+        <input type="checkbox" id="chk" value="MiCheck" onchange="mostrarChec();"/>
+        <input type="checkbox" name="MostrarDatos" value="ON" />
     </body>
 </html>
