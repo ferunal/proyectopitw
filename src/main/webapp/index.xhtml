@@ -27,11 +27,11 @@
             <h:panelGrid columns="2">
                 <h:outputText value="Mostrar torta"/>
                 <p:selectBooleanCheckbox id="chkMostrarTortal" valueChangeListener="#{datosGraficoJSFBean.chkTorta_VCE}"
-                                         >
+                                         value="#{datosGraficoJSFBean.mostrarTorta}"   >
                     <p:ajax process="@this" update="graficas:graficos"/>
                 </p:selectBooleanCheckbox>
                 <h:outputText value="Mostrar barra"/>
-                <p:selectBooleanCheckbox id="chkMostrarBarra" valueChangeListener="#{datosGraficoJSFBean.chkBarra_VCE}" >
+                <p:selectBooleanCheckbox id="chkMostrarBarra" value="#{datosGraficoJSFBean.mostrarBarra}"  valueChangeListener="#{datosGraficoJSFBean.chkBarra_VCE}" >
                     <p:ajax process="@this" update="graficas:graficos"/>
                 </p:selectBooleanCheckbox>
                 <h:outputText value="Mostrar linea"/>
@@ -40,6 +40,9 @@
                 </p:selectBooleanCheckbox>
             </h:panelGrid>
             <p:dataTable value="#{datosGraficoJSFBean.pieDataList}" var="item">
+                <f:facet name="header">
+                    <h:outputText value="Area por países"/>
+                </f:facet>
                 <p:column>
                     <f:facet name="header">
                         <h:outputText value="Pais"/>
