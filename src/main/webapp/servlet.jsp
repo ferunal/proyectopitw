@@ -11,13 +11,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <title>Google Chart - Servlet 3</title>
-        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <title>Google Charts con Servlets</title>
+        <!-- <script type="text/javascript" src="https://www.google.com/jsapi"></script>-->
+        <script type="text/javascript" src="js/DibujarGrafico.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+        
         <script type="text/javascript">
-            // Load the Visualization API and the piechart package.
-            google.load('visualization', '1.0', {
-                'packages': ['corechart']
-            });
+            google.charts.load('current', {'packages': ['corechart', 'table']});
+
+
+
 
             // Set a callback to run when the Google Visualization API is loaded.
             //google.setOnLoadCallback(drawChart);
@@ -28,21 +32,14 @@
             // draws it.
             function drawChart() {
 
-                // Create the data table.
-                //var data = new google.visualization.DataTable();
-                //data.addColumn('string', 'Topping');
-                //data.addColumn('number', 'Slices');
-                /*data.addRows([
-            <c:forEach items="${pieDataMap}" var="entry">
-                 [ '${entry.key}', ${entry.value} ],
-            </c:forEach>
-                 ]);*/
                 var data = google.visualization.arrayToDataTable([
                     ['Country', 'Area(square km)'],
             <c:forEach items="${pieDataList}" var="entry">
                     [ '${entry.key}', ${entry.value} ],
             </c:forEach>
                 ]);
+
+
 
                 // Set chart options
                 var options = {
@@ -57,38 +54,33 @@
                 // Instantiate and draw our chart, passing in some options.
                 var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
                 chart.draw(data, options);
+
+                // Crear tabla de datos.
+
+                var table = new google.visualization.Table(document.getElementById('tabla_divtorta'));
+
+                table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+
+
+
+
+
             }
 
-            function dibujarBarra() {
-                var mostrartorta = document.getElementById('mostrartorta');
-                if (mostrartorta.checked === true) {
-                    drawChart();
-
-                }else{
-                    document.getElementById("chart_div").innerHTML = "";
-                }
-
-            }
+           
 
 
 
             function drawChartBarra() {
 
-                // Create the data table.
-                //var data = new google.visualization.DataTable();
-                //data.addColumn('string', 'Topping');
-                //data.addColumn('number', 'Slices');
-                /*data.addRows([
-            <c:forEach items="${pieDataMap}" var="entry">
-                 [ '${entry.key}', ${entry.value} ],
-            </c:forEach>
-                 ]);*/
                 var data = google.visualization.arrayToDataTable([
                     ['Country', 'Area(square km)'],
             <c:forEach items="${pieDataList}" var="entry">
                     [ '${entry.key}', ${entry.value} ],
             </c:forEach>
                 ]);
+
+
 
                 // Set chart options
                 var options = {
@@ -104,15 +96,47 @@
                 var chart = new google.visualization.BarChart(document.getElementById('chart_div_bar'));
                 chart.draw(data, options);
             }
+
+            function drawChartLineas() {
+
+                var data = google.visualization.arrayToDataTable([
+                    ['Country', 'Area(square km)'],
+            <c:forEach items="${pieDataList}" var="entry">
+                    [ '${entry.key}', ${entry.value} ],
+            </c:forEach>
+                ]);
+
+
+
+                // Set chart options
+                var options = {
+                    'title': 'Area-wise Top Seven Countries in the World', //title which will be shown right above the Google Pie Chart
+
+                    //pieSliceText: 'label', //on mouse hover show label or name of the Country
+                    tooltip: {showColorCode: true},
+                    // whether to display color code for a Country on mouse hover
+                    'width': 900, //width of the Google Pie Chart
+                    'height': 500 //height of the Google Pie Chart
+                };
+
+                // Instantiate and draw our chart, passing in some options.
+                var chart = new google.visualization.LineChart(document.getElementById('chart_div_lin'));
+                chart.draw(data, options);
+            }
         </script>
     </head>
     <body>
         <div style="width: 600px;">
-            <input type="checkbox"  name="mostrarbarra" id="mostrartorta" onchange="dibujarBarra();"/>
-            <input type="checkbox" value="Mostrar barras" id="mostrarbarra"/>
-            <input type="checkbox" value="Mostrar lineas" />
+            <label for="mostrartorta">Mostrar torta</label>
+            <input type="checkbox"  name="mostrarbarra" id="mostrartorta"  onchange="dibujarGraficos();"/>
+            <label for="mostrarbarra">Mostrar barra</label>
+            <input type="checkbox" value="Mostrar barras" id="mostrarbarra" onchange="dibujarGraficos();"/>
+            <label for="mostrarlineas">Mostrar lineas</label>
+            <input type="checkbox" value="Mostrar lineas" id="mostrarlineas" onchange="dibujarGraficos();"/>
             <div id="chart_div"></div>
+            <div id="tabla_divtorta"></div>
             <div id="chart_div_bar"></div>
+            <div id="chart_div_lin"></div>
         </div>
     </body>
 </html>
