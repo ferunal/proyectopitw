@@ -14,6 +14,8 @@ function dibujarGraficos() {
 
     } else {
         document.getElementById("chart_div").innerHTML = "";
+        document.getElementById("tabla_divtorta").innerHTML = "";
+        
     }
 
     if (mostrarbarra.checked === true) {
@@ -21,6 +23,8 @@ function dibujarGraficos() {
 
     } else {
         document.getElementById("chart_div_bar").innerHTML = "";
+
+
     }
     if (mostrarlineas.checked === true) {
 
