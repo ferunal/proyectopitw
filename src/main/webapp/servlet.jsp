@@ -16,11 +16,9 @@
         <script type="text/javascript" src="js/DibujarGrafico.js"></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-        
+
         <script type="text/javascript">
             google.charts.load('current', {'packages': ['corechart', 'table']});
-
-
 
 
             // Set a callback to run when the Google Visualization API is loaded.
@@ -31,15 +29,12 @@
             // instantiates the pie chart, passes in the data and
             // draws it.
             function drawChart() {
-
                 var data = google.visualization.arrayToDataTable([
                     ['Country', 'Area(square km)'],
             <c:forEach items="${pieDataList}" var="entry">
                     [ '${entry.key}', ${entry.value} ],
             </c:forEach>
                 ]);
-
-
 
                 // Set chart options
                 var options = {
@@ -61,15 +56,7 @@
 
                 table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
 
-
-
-
-
             }
-
-           
-
-
 
             function drawChartBarra() {
 
@@ -79,8 +66,6 @@
                     [ '${entry.key}', ${entry.value} ],
             </c:forEach>
                 ]);
-
-
 
                 // Set chart options
                 var options = {
@@ -105,8 +90,6 @@
                     [ '${entry.key}', ${entry.value} ],
             </c:forEach>
                 ]);
-
-
 
                 // Set chart options
                 var options = {

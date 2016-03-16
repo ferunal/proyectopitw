@@ -39,42 +39,48 @@
                     <p:ajax process="@this" update="graficas:graficos"/>
                 </p:selectBooleanCheckbox>
             </h:panelGrid>
-            <p:dataTable value="#{datosGraficoJSFBean.pieDataList}" var="item">
-                <f:facet name="header">
-                    <h:outputText value="Area por países"/>
-                </f:facet>
-                <p:column>
+            
+            <p:spacer height="30"/> 
+            <div align="center">
+                <p:dataTable value="#{datosGraficoJSFBean.pieDataList}" var="item" style="width: 50%;">
                     <f:facet name="header">
-                        <h:outputText value="Pais"/>
+                        <h:outputText value="Área por países"/>
                     </f:facet>
-                    <h:outputText value="#{item.key}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        <h:outputText value="Area"/>
-                    </f:facet>
-                    <h:outputText value="#{item.value}"/>
-                </p:column>
-            </p:dataTable>
-            <h:panelGrid id="graficos">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="País"/>
+                        </f:facet>
+                        <h:outputText value="#{item.key}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Área"/>
+                        </f:facet>
+                        <h:outputText value="#{item.value}"/>
+                    </p:column>
+                </p:dataTable>
+            </div>
+            
+            <p:spacer height="30"/>
+
+            <div align="center">
+                <h:panelGrid id="graficos">
 
 
-                <h:panelGroup id="pie" rendered="#{datosGraficoJSFBean.mostrarTorta}">
-                    <p:chart  type="pie" model="#{datosGraficoJSFBean.pieDatosAreaPaises}" style="width:400px;height:300px"
-                              />
-                </h:panelGroup>
-                <h:panelGroup id="barras" rendered="#{datosGraficoJSFBean.mostrarBarra}">
-                    <p:chart type="bar" model="#{datosGraficoJSFBean.barDatosPaises}" style="height:300px" responsive="true"
-                             />
-                </h:panelGroup>
-                <h:panelGroup id="lineas" rendered="#{datosGraficoJSFBean.mostrarLinea}">
-                    <p:chart type="line" model="#{datosGraficoJSFBean.lineChartModel}" style="height:300px;"
-                             /> 
-                </h:panelGroup>
-            </h:panelGrid>
-
-
-
+                    <h:panelGroup id="pie" rendered="#{datosGraficoJSFBean.mostrarTorta}">
+                        <p:chart  type="pie" model="#{datosGraficoJSFBean.pieDatosAreaPaises}" style="width:400px;height:300px"
+                                  />
+                    </h:panelGroup>
+                    <h:panelGroup id="barras" rendered="#{datosGraficoJSFBean.mostrarBarra}">
+                        <p:chart type="bar" model="#{datosGraficoJSFBean.barDatosPaises}" style="height:300px" responsive="true"
+                                 />
+                    </h:panelGroup>
+                    <h:panelGroup id="lineas" rendered="#{datosGraficoJSFBean.mostrarLinea}">
+                        <p:chart type="line" model="#{datosGraficoJSFBean.lineChartModel}" style="height:300px;"
+                                 /> 
+                    </h:panelGroup>
+                </h:panelGrid>
+            </div>
         </h:form>
     </h:body>
 </html>
