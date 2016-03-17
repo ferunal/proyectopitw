@@ -20,9 +20,6 @@
         <script type="text/javascript">
             google.charts.load('current', {'packages': ['corechart', 'table']});
 
-
-
-
             // Set a callback to run when the Google Visualization API is loaded.
             //google.setOnLoadCallback(drawChart);
             //google.setOnLoadCallback(drawChartBarra);
@@ -36,8 +33,12 @@
                     ['Country', 'Area(square km)'],
             <c:forEach items="${pieDataList}" var="entry">
                     [ '${entry.key}', ${entry.value} ],
+                    
             </c:forEach>
+                
                 ]);
+               
+                
 
 
 
@@ -61,16 +62,9 @@
 
                 table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
 
-
-
-
-
             }
 
            
-
-
-
             function drawChartBarra() {
 
                 var data = google.visualization.arrayToDataTable([
