@@ -79,7 +79,7 @@
                     //pieSliceText: 'label', //on mouse hover show label or name of the Country
                     tooltip: {showColorCode: true}, // whether to display color code for a Country on mouse hover
                     'width': 900, //width of the Google Pie Chart
-                    'height': 500 //height of the Google Pie Chart
+                    'height': 400 //height of the Google Pie Chart
                 };
 
                 // Instantiate and draw our chart, passing in some options.
@@ -107,8 +107,8 @@
                     //pieSliceText: 'label', //on mouse hover show label or name of the Country
                     tooltip: {showColorCode: true},
                     // whether to display color code for a Country on mouse hover
-                    'width': 900, //width of the Google Pie Chart
-                    'height': 500 //height of the Google Pie Chart
+                    'width': 700, //width of the Google Pie Chart
+                    'height': 00 //height of the Google Pie Chart
                 };
 
                 // Instantiate and draw our chart, passing in some options.
@@ -127,13 +127,13 @@
      
             <!--LISTAS-->
             <ul class="list-group">
-            <li class="list-group-item list-group-item-success">Ejempplo</li>
+            <li class="list-group-item list-group-item-success" >MOSTRAR GRAFICAS</li>
             <label for="mostrartorta">MOSTRAR GRAFICA DE TORTA</label>
-            <input type="checkbox"  name="mostrarbarra" id="mostrartorta"  onchange="dibujarGraficos();"/>
+            <input type="checkbox"  name="mostrarbarra" id="mostrartorta"  onchange="dibujarGraficos();"/><BR>
             <label for="mostrarbarra">MOSTRAR GRAFICA DE BARRAS</label>
-            <input type="checkbox" value="Mostrar barras" id="mostrarbarra" onchange="dibujarGraficos();"/>
+            <input type="checkbox" value="Mostrar barras" id="mostrarbarra" onchange="dibujarGraficos();"/><BR>
             <label for="mostrarlineas">MOSTRAR GRAFICA DE LINEAS</label>
-            <input type="checkbox" value="Mostrar lineas" id="mostrarlineas" onchange="dibujarGraficos();"/>
+            <input type="checkbox" value="Mostrar lineas" id="mostrarlineas" onchange="dibujarGraficos();"/><BR>
             <div id="chart_div"></div>
             <div id="tabla_divtorta"></div>
             <div id="chart_div_bar"></div>
