@@ -80,6 +80,10 @@
                 // Instantiate and draw our chart, passing in some options.
                 var chart = new google.visualization.BarChart(document.getElementById('chart_div_bar'));
                 chart.draw(data, options);
+                
+                var table = new google.visualization.Table(document.getElementById('tabla_divtorta'));
+
+                table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
             }
 
             function drawChartLineas() {
@@ -105,6 +109,10 @@
                 // Instantiate and draw our chart, passing in some options.
                 var chart = new google.visualization.LineChart(document.getElementById('chart_div_lin'));
                 chart.draw(data, options);
+                
+                var table = new google.visualization.Table(document.getElementById('tabla_divtorta'));
+
+                table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
             }
         </script>
     </head>
