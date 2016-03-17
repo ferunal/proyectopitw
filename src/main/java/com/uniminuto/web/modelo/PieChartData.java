@@ -17,7 +17,7 @@ public class PieChartData {
     private static final List<KeyValue> pieDataList;
 
     static {
-        pieDataList = new ArrayList<PieChartData.KeyValue>();
+        pieDataList = new ArrayList<>();
         pieDataList.add(new KeyValue("Russia", "17098242"));
         pieDataList.add(new KeyValue("Canada", "9984670"));
         pieDataList.add(new KeyValue("USA", "9826675"));
