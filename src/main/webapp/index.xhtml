@@ -5,6 +5,22 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
+  
+ 
+    <!-- CSS de Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen"></link>
+            
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+  
+  <meta charset="utf-8"> </meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+            <title>Proyecto Web</title>
     <h:head>
         <title>Facelet Title</title>
         <script type="text/javascript">
@@ -25,17 +41,20 @@
 
         <h:form id="graficas">
             <div align="center">
+                 <li class="list-group-item list-group-item-success">MOSTRAR GRAFICA</li>
                 <h:panelGrid columns="2">
-                    <h:outputText value="Mostrar torta"/>
+                  
+                   
+                    <h:outputText value="Mostrar Grafica Torta"/>
                     <p:selectBooleanCheckbox id="chkMostrarTortal" valueChangeListener="#{datosGraficoJSFBean.chkTorta_VCE}"
-                                             value="#{datosGraficoJSFBean.mostrarTorta}"   >
+                                 value="#{datosGraficoJSFBean.mostrarTorta}"   >
                         <p:ajax process="@this" update="graficas:graficos"/>
                     </p:selectBooleanCheckbox>
-                    <h:outputText value="Mostrar barra"/>
+                    <h:outputText value="Mostrar Grafica Barra"/>
                     <p:selectBooleanCheckbox id="chkMostrarBarra" value="#{datosGraficoJSFBean.mostrarBarra}"  valueChangeListener="#{datosGraficoJSFBean.chkBarra_VCE}" >
                         <p:ajax process="@this" update="graficas:graficos"/>
                     </p:selectBooleanCheckbox>
-                    <h:outputText value="Mostrar linea"/>
+                    <h:outputText value="Mostrar Grafica Linea"/>
                     <p:selectBooleanCheckbox id="chkMostrarLinea" valueChangeListener="#{datosGraficoJSFBean.chkLinea_VCE}" >
                         <p:ajax process="@this" update="graficas:graficos"/>
                     </p:selectBooleanCheckbox>
@@ -86,5 +105,7 @@
             </div>
         </h:form>
     </h:body>
+        </link>
+  
 </html>
 
