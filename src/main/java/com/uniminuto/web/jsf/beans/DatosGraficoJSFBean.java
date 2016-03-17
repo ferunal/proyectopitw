@@ -18,8 +18,8 @@ import org.primefaces.model.chart.Axis;
 import org.primefaces.model.chart.AxisType;
 import org.primefaces.model.chart.BarChartModel;
 import org.primefaces.model.chart.ChartSeries;
-import org.primefaces.model.chart.HorizontalBarChartModel;
 import org.primefaces.model.chart.LineChartModel;
+import org.primefaces.model.chart.LineChartSeries;
 import org.primefaces.model.chart.PieChartModel;
 
 /**
@@ -63,10 +63,12 @@ public class DatosGraficoJSFBean implements Serializable {
     public void chkTorta_VCE(ValueChangeEvent vce) {
         mostrarTorta = Boolean.valueOf(String.valueOf(vce.getNewValue()));
     }
-      public void chkBarra_VCE(ValueChangeEvent vce) {
+
+    public void chkBarra_VCE(ValueChangeEvent vce) {
         mostrarBarra = Boolean.valueOf(String.valueOf(vce.getNewValue()));
     }
-        public void chkLinea_VCE(ValueChangeEvent vce) {
+
+    public void chkLinea_VCE(ValueChangeEvent vce) {
         mostrarLinea = Boolean.valueOf(String.valueOf(vce.getNewValue()));
     }
 
@@ -76,12 +78,21 @@ public class DatosGraficoJSFBean implements Serializable {
         pieDatosAreaPaises = new PieChartModel();
         barDatosPaises = new BarChartModel();
         lineChartModel = new LineChartModel();
+
         ChartSeries areaPaises = new ChartSeries("Areas");
         pieDataList = PieChartData.getPieDataList();
+
+        int contador = 1;
+        LineChartSeries chartSeries = new LineChartSeries();
+
         for (KeyValue keyValue : pieDataList) {
             pieDatosAreaPaises.set(keyValue.getKey(), Long.valueOf(keyValue.getValue()));
             areaPaises.set(keyValue.getKey(), Long.valueOf(keyValue.getValue()));
+
+            chartSeries.set(contador, Long.valueOf(keyValue.getValue()));
+            contador++;
         }
+        lineChartModel.addSeries(chartSeries);
 
         pieDatosAreaPaises.setTitle("Area por países");
         pieDatosAreaPaises.setLegendPosition("w");
@@ -94,14 +105,19 @@ public class DatosGraficoJSFBean implements Serializable {
         barDatosPaises.setLegendPosition("ne");
         barDatosPaises.setAnimate(true);
 
-        lineChartModel.addSeries(areaPaises);
-
         Axis xAxisL = lineChartModel.getAxis(AxisType.X);
         xAxisL.setLabel("País");
+        xAxisL.setMin(0);
+        xAxisL.setMax(8);
+        xAxisL.setTickInterval("1");
 
         Axis yAxisL = lineChartModel.getAxis(AxisType.Y);
         yAxisL.setLabel("Area");
+        yAxisL.setMin(3000000);
+        yAxisL.setMax(18000000);
+        yAxisL.setTickInterval("5000000");
 
+        //lineChartModel.addSeries(areaPaises);
         Axis xAxis = barDatosPaises.getAxis(AxisType.X);
         xAxis.setLabel("País");
 

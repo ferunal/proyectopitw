@@ -5,6 +5,22 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
+  
+ 
+    <!-- CSS de Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen"></link>
+            
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+  
+  <meta charset="utf-8"> </meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+            <title>Proyecto Web</title>
     <h:head>
         <title>Facelet Title</title>
         <script type="text/javascript">
@@ -24,58 +40,72 @@
         <br />
 
         <h:form id="graficas">
-            <h:panelGrid columns="2">
-                <h:outputText value="Mostrar torta"/>
-                <p:selectBooleanCheckbox id="chkMostrarTortal" valueChangeListener="#{datosGraficoJSFBean.chkTorta_VCE}"
-                                         value="#{datosGraficoJSFBean.mostrarTorta}"   >
-                    <p:ajax process="@this" update="graficas:graficos"/>
-                </p:selectBooleanCheckbox>
-                <h:outputText value="Mostrar barra"/>
-                <p:selectBooleanCheckbox id="chkMostrarBarra" value="#{datosGraficoJSFBean.mostrarBarra}"  valueChangeListener="#{datosGraficoJSFBean.chkBarra_VCE}" >
-                    <p:ajax process="@this" update="graficas:graficos"/>
-                </p:selectBooleanCheckbox>
-                <h:outputText value="Mostrar linea"/>
-                <p:selectBooleanCheckbox id="chkMostrarLinea" valueChangeListener="#{datosGraficoJSFBean.chkLinea_VCE}" >
-                    <p:ajax process="@this" update="graficas:graficos"/>
-                </p:selectBooleanCheckbox>
-            </h:panelGrid>
-            <p:dataTable value="#{datosGraficoJSFBean.pieDataList}" var="item">
-                <f:facet name="header">
-                    <h:outputText value="Area por países"/>
-                </f:facet>
-                <p:column>
-                    <f:facet name="header">
-                        <h:outputText value="Pais"/>
-                    </f:facet>
-                    <h:outputText value="#{item.key}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        <h:outputText value="Area"/>
-                    </f:facet>
-                    <h:outputText value="#{item.value}"/>
-                </p:column>
-            </p:dataTable>
-            <h:panelGrid id="graficos">
+            <div align="center">
+                 <li class="list-group-item list-group-item-success">MOSTRAR GRAFICA</li>
+                <h:panelGrid columns="2">
+                  
+                   
+                    <h:outputText value="Mostrar Grafica Torta"/>
+                    <p:selectBooleanCheckbox id="chkMostrarTortal" valueChangeListener="#{datosGraficoJSFBean.chkTorta_VCE}"
+                                 value="#{datosGraficoJSFBean.mostrarTorta}"   >
+                        <p:ajax process="@this" update="graficas:graficos"/>
+                    </p:selectBooleanCheckbox>
+                    <h:outputText value="Mostrar Grafica Barra"/>
+                    <p:selectBooleanCheckbox id="chkMostrarBarra" value="#{datosGraficoJSFBean.mostrarBarra}"  valueChangeListener="#{datosGraficoJSFBean.chkBarra_VCE}" >
+                        <p:ajax process="@this" update="graficas:graficos"/>
+                    </p:selectBooleanCheckbox>
+                    <h:outputText value="Mostrar Grafica Linea"/>
+                    <p:selectBooleanCheckbox id="chkMostrarLinea" valueChangeListener="#{datosGraficoJSFBean.chkLinea_VCE}" >
+                        <p:ajax process="@this" update="graficas:graficos"/>
+                    </p:selectBooleanCheckbox>
+                </h:panelGrid>
+            </div>
 
+            <p:spacer height="30"/>
+            <div align="center" style="width: 70%">
+                <p:panelGrid columns="3">
+                    <p:dataTable value="#{datosGraficoJSFBean.pieDataList}" var="item" rowIndexVar="index">
+                        <f:facet name="header">
+                            <h:outputText value="Área por países"/>
+                        </f:facet>
+                        <p:column headerText="#" style="width: 20%">
+                            #{index + 1}
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="País"/>
+                            </f:facet>
+                            <h:outputText value="#{item.key}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Área"/>
+                            </f:facet>
+                            <h:outputText value="#{item.value}"/>
+                        </p:column>
+                    </p:dataTable>
 
-                <h:panelGroup id="pie" rendered="#{datosGraficoJSFBean.mostrarTorta}">
-                    <p:chart  type="pie" model="#{datosGraficoJSFBean.pieDatosAreaPaises}" style="width:400px;height:300px"
-                              />
-                </h:panelGroup>
-                <h:panelGroup id="barras" rendered="#{datosGraficoJSFBean.mostrarBarra}">
-                    <p:chart type="bar" model="#{datosGraficoJSFBean.barDatosPaises}" style="height:300px" responsive="true"
-                             />
-                </h:panelGroup>
-                <h:panelGroup id="lineas" rendered="#{datosGraficoJSFBean.mostrarLinea}">
-                    <p:chart type="line" model="#{datosGraficoJSFBean.lineChartModel}" style="height:300px;"
-                             /> 
-                </h:panelGroup>
-            </h:panelGrid>
+                    <div style="width: 20%;"/>
 
+                    <h:panelGrid id="graficos">
+                        <h:panelGroup id="pie" rendered="#{datosGraficoJSFBean.mostrarTorta}">
+                            <p:chart  type="pie" model="#{datosGraficoJSFBean.pieDatosAreaPaises}" style="width:400px;height:300px"
+                                      />
+                        </h:panelGroup>
+                        <h:panelGroup id="barras" rendered="#{datosGraficoJSFBean.mostrarBarra}">
+                            <p:chart type="bar" model="#{datosGraficoJSFBean.barDatosPaises}" style="height:300px" responsive="true"
+                                     />
+                        </h:panelGroup>
+                        <h:panelGroup id="lineas" rendered="#{datosGraficoJSFBean.mostrarLinea}">
+                            <p:chart type="line" model="#{datosGraficoJSFBean.lineChartModel}" style="height:300px;" responsive="true"/> 
+                        </h:panelGroup>
+                    </h:panelGrid>
 
-
+                </p:panelGrid>
+            </div>
         </h:form>
     </h:body>
+        </link>
+  
 </html>
 
