@@ -125,47 +125,50 @@
 </script>
 </head>
 <body>
+    <div align="center">
+        <a href="index.jsf">Ir a gráficas de PrimeFaces</a>
+        <li class="list-group-item list-group-item-success" >MOSTRAR GRAFICAS</li>
 
-<li class="list-group-item list-group-item-success" >MOSTRAR GRAFICAS</li>
-<label for="mostrartorta">MOSTRAR GRAFICA DE TORTA</label>
-<input type="checkbox"  name="mostrarbarra" id="mostrartorta"  onchange="dibujarGraficos();"/><BR>
-<label for="mostrarbarra">MOSTRAR GRAFICA DE BARRAS</label>
-<input type="checkbox" value="Mostrar barras" id="mostrarbarra" onchange="dibujarGraficos();"/><BR>
-<label for="mostrarlineas">MOSTRAR GRAFICA DE LINEAS</label>
-<input type="checkbox" value="Mostrar lineas" id="mostrarlineas" onchange="dibujarGraficos();"/><BR>
-<div class="container">
-    <!-- Example row of columns -->
-    <div class="row">
-        <div class="col-md-4">
-            <div id="chart_div" ></div>
-        </div>
-        <div class="col-md-4">
-            <div id="chart_div_bar"></div>
-        </div>
-        <div class="col-md-4">
-            <div id="chart_div_lin"></div>
-        </div>
+        <label for="mostrartorta">MOSTRAR GRAFICA DE TORTA</label>
+        <input type="checkbox"  name="mostrarbarra" id="mostrartorta"  onchange="dibujarGraficos();"/><BR>
+        <label for="mostrarbarra">MOSTRAR GRAFICA DE BARRAS</label>
+        <input type="checkbox" value="Mostrar barras" id="mostrarbarra" onchange="dibujarGraficos();"/><BR>
+        <label for="mostrarlineas">MOSTRAR GRAFICA DE LINEAS</label>
+        <input type="checkbox" value="Mostrar lineas" id="mostrarlineas" onchange="dibujarGraficos();"/><BR>
     </div>
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <div id="chart_div" ></div>
+            </div>
+            <div class="col-md-4">
+                <div id="chart_div_bar"></div>
+            </div>
+            <div class="col-md-4">
+                <div id="chart_div_lin"></div>
+            </div>
+        </div>
 
-    <hr>
+        <hr>
 
-    <footer>
-        <p>UNIMINUTO</p>
-    </footer>
-</div> <!-- /container -->
+        <footer>
 
-
+        </footer>
+    </div> <!-- /container -->
 
 
 
 
-<!--LISTAS-->
-<ul class="list-group">
 
 
-    <div id="tabla_divtorta"></div>
+    <!--LISTAS-->
+    <ul class="list-group">
 
 
-</div>
+        <div id="tabla_divtorta"></div>
+
+
+    </div>
 </body>
 
